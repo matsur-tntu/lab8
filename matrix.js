@@ -1,58 +1,121 @@
-// Matrix-style falling code background
-class MatrixRain {
+// Neural Network Particle Background Animation
+class NeuralNetwork {
   constructor() {
     this.canvas = document.createElement('canvas');
-    this.canvas.id = 'matrix-canvas';
+    this.canvas.id = 'neural-canvas';
     this.ctx = this.canvas.getContext('2d');
 
     this.matrixBg = document.getElementById('matrix-bg');
     this.matrixBg.appendChild(this.canvas);
+    this.matrixBg.style.pointerEvents = 'auto';
+    this.canvas.style.pointerEvents = 'auto';
 
-    this.characters = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    this.fontSize = 14;
-    this.columns = 0;
-    this.drops = [];
+    this.particles = [];
+    this.numParticles = 256;
+    this.maxDistance = 128;
+    this.mouse = { x: null, y: null };
 
     this.init();
     this.animate();
+    this.addEventListeners();
   }
 
   init() {
     this.resize();
     window.addEventListener('resize', () => this.resize());
+    this.createParticles();
   }
 
   resize() {
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
-    this.columns = Math.floor(this.canvas.width / this.fontSize);
-    this.drops = Array(this.columns).fill(1);
+  }
+
+  createParticles() {
+    this.particles = [];
+    for (let i = 0; i < this.numParticles; i++) {
+      this.particles.push({
+        x: Math.random() * this.canvas.width,
+        y: Math.random() * this.canvas.height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: Math.random() * 2 + 1,
+        color: this.getRandomColor()
+      });
+    }
+  }
+
+  getRandomColor() {
+    const colors = ['#00ffff', '#ff00ff', '#ffff00', '#ff0000', '#00ff00', '#0000ff'];
+    // const colors = ['#ff00ff', '#0000ff'];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  addEventListeners() {
+    document.addEventListener('mousemove', (e) => {
+      this.mouse.x = e.clientX;
+      this.mouse.y = e.clientY;
+    });
+    document.addEventListener('mouseleave', () => {
+      this.mouse.x = null;
+      this.mouse.y = null;
+    });
   }
 
   animate() {
-    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
-    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    for (let i = 0; i < this.drops.length; i++) {
-      // Random color for each character
-      const colors = ['#00ff00', '#00ffff', '#ff00ff', '#ffff00', '#ff0000'];
-      this.ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
-      this.ctx.font = this.fontSize + 'px JetBrains Mono';
+    // Update particles
+    this.particles.forEach(particle => {
+      particle.x += particle.vx;
+      particle.y += particle.vy;
 
-      const text = this.characters.charAt(Math.floor(Math.random() * this.characters.length));
-      this.ctx.fillText(text, i * this.fontSize, this.drops[i] * this.fontSize);
+      // Wrap around edges
+      if (particle.x < 0) particle.x = this.canvas.width;
+      if (particle.x > this.canvas.width) particle.x = 0;
+      if (particle.y < 0) particle.y = this.canvas.height;
+      if (particle.y > this.canvas.height) particle.y = 0;
 
-      if (this.drops[i] * this.fontSize > this.canvas.height && Math.random() > 0.975) {
-        this.drops[i] = 0;
+      // Draw particle
+      this.ctx.beginPath();
+      this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+      this.ctx.fillStyle = particle.color;
+      this.ctx.fill();
+    });
+
+    // Draw connections
+    this.particles.forEach((p1, i) => {
+      this.particles.slice(i + 1).forEach(p2 => {
+        const distance = Math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2);
+        if (distance < this.maxDistance) {
+          this.ctx.beginPath();
+          this.ctx.moveTo(p1.x, p1.y);
+          this.ctx.lineTo(p2.x, p2.y);
+          this.ctx.strokeStyle = `rgba(0, 255, 255, ${1 - distance / this.maxDistance})`;
+          this.ctx.lineWidth = 0.5;
+          this.ctx.stroke();
+        }
+      });
+
+      // Connect to mouse if close
+      if (this.mouse.x !== null) {
+        const mouseDistance = Math.sqrt((p1.x - this.mouse.x) ** 2 + (p1.y - this.mouse.y) ** 2);
+        if (mouseDistance < this.maxDistance) {
+          this.ctx.beginPath();
+          this.ctx.moveTo(p1.x, p1.y);
+          this.ctx.lineTo(this.mouse.x, this.mouse.y);
+          this.ctx.strokeStyle = `rgba(255, 255, 0, ${1 - mouseDistance / this.maxDistance})`;
+          this.ctx.lineWidth = 1;
+          this.ctx.stroke();
+        }
       }
-      this.drops[i]++;
-    }
+    });
 
     requestAnimationFrame(() => this.animate());
   }
 }
 
-// Initialize matrix rain when DOM is loaded
+// Initialize neural network when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  new MatrixRain();
+  new NeuralNetwork();
 });
