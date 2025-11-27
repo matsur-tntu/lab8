@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Завдання - Lab8_</title>
+  <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Lab8_">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Matrix Background -->
+  <div class="matrix-bg" id="matrix-bg"></div>
+
+  <nav>
+    <div class="nav-container container">
+      <div class="logo">Lab8_</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="status.html">Статус</a></li>
+        <li class="active"><a href="tasks.html">Завдання</a></li>
+        <li><a href="team.html">Команда</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="tasks" class="section">
+    <div class="container">
+      <h2>ЗАВДАННЯ Lab8_</h2>
+      <p style="text-align: center;">Моніторинг фінансових індикаторів та валютних курсів</p>
+
+      <div class="terminal">
+        > tasks --currency-rates<br>
+        Fetching live exchange rates...<br>
+        Data source: Quantum Financial Network<br>
+        Last update: 2025-11-27 12:00 UTC
+      </div>
+
+      <div class="card" style="max-width: 1000px; margin: 0 auto;">
+        <h3 style="color: #00ffff; text-align: center;">КУРСИ ВАЛЮТ</h3>
+        <p style="text-align: center; color: #b8c5d6; margin-bottom: 2rem;">
+          Поточні курси валют відносно Української гривні (UAH)
+        </p>
+
+        <table class="currency-table">
+          <thead>
+            <tr>
+              <th>Валюта</th>
+              <th>Код</th>
+              <th>Курс до UAH</th>
+              <th>Зміна (24г)</th>
+              <th>Статус</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Долар США</td>
+              <td>USD</td>
+              <td>41.25</td>
+              <td style="color: #00ff00;">+0.15</td>
+              <td><span class="status-active">АКТИВНИЙ</span></td>
+            </tr>
+            <tr>
+              <td>Євро</td>
+              <td>EUR</td>
+              <td>44.80</td>
+              <td style="color: #ff0000;">-0.20</td>
+              <td><span class="status-active">АКТИВНИЙ</span></td>
+            </tr>
+            <tr>
+              <td>Британський фунт</td>
+              <td>GBP</td>
+              <td>52.10</td>
+              <td style="color: #00ff00;">+0.05</td>
+              <td><span class="status-active">АКТИВНИЙ</span></td>
+            </tr>
+            <tr>
+              <td>Швейцарський франк</td>
+              <td>CHF</td>
+              <td>46.90</td>
+              <td style="color: #ffff00;">0.00</td>
+              <td><span class="status-active">АКТИВНИЙ</span></td>
+            </tr>
+            <tr>
+              <td>Польський злотий</td>
+              <td>PLN</td>
+              <td>10.25</td>
+              <td style="color: #00ff00;">+0.10</td>
+              <td><span class="status-active">АКТИВНИЙ</span></td>
+            </tr>
+            <tr>
+              <td>Російський рубль</td>
+              <td>RUB</td>
+              <td>0.42</td>
+              <td style="color: #ff0000;">-0.02</td>
+              <td><span class="status-warning">ОБМЕЖЕНИЙ</span></td>
+            </tr>
+            <tr>
+              <td>Криптовалюта Bitcoin</td>
+              <td>BTC</td>
+              <td>2,450,000</td>
+              <td style="color: #00ff00;">+25,000</td>
+              <td><span class="status-active">ВОЛАТИЛЬНИЙ</span></td>
+            </tr>
+            <tr>
+              <td>Криптовалюта Ethereum</td>
+              <td>ETH</td>
+              <td>165,000</td>
+              <td style="color: #ff0000;">-2,500</td>
+              <td><span class="status-active">ВОЛАТИЛЬНИЙ</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="terminal" style="margin-top: 2rem; text-align: left;">
+          > currency.update --auto<br>
+          Auto-update enabled...<br>
+          Next refresh: 60 seconds<br>
+          Quantum sync: ACTIVE
+        </div>
+      </div>
+
+      <div class="card-grid" style="margin-top: 3rem;">
+        <div class="card">
+          <h3>ФІНАНСОВИЙ МОНІТОРИНГ</h3>
+          <p>Автоматизований збір та аналіз фінансових даних у реальному часі</p>
+          <div class="terminal">
+            > monitor --financial<br>
+            Scanning markets... [OK]<br>
+            Anomalies detected: 0
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>КВАНТОВИЙ АНАЛІЗ</h3>
+          <p>Прогнозування ринкових тенденцій з використанням квантових алгоритмів</p>
+          <div class="terminal">
+            > quantum.predict --market<br>
+            Processing data...<br>
+            Confidence: 94.7%
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>БЕЗПЕЧНІ ТРАНЗАКЦІЇ</h3>
+          <p>Криптографічний захист всіх фінансових операцій</p>
+          <div class="terminal">
+            > secure.transaction --encrypt<br>
+            Keys generated...<br>
+            Encryption: QUANTUM-SECURE
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="matrix.js"></script>
+</body>
+</html>

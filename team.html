@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Команда - Lab8_</title>
+  <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Lab8_">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Matrix Background -->
+  <div class="matrix-bg" id="matrix-bg"></div>
+
+  <nav>
+    <div class="nav-container container">
+      <div class="logo">Lab8_</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="status.html">Статус</a></li>
+        <li><a href="tasks.html">Завдання</a></li>
+        <li class="active"><a href="team.html">Команда</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="team" class="section">
+    <div class="container">
+      <h2>КОМАНДА Lab8_</h2>
+      <p style="text-align: center;">Елітна команда інноваторів, які формують майбутнє технологій</p>
+
+      <div class="terminal">
+        > team --list<br>
+        Loading team profiles...<br>
+        5 members found. Displaying profiles.
+      </div>
+
+      <div class="card-grid" style="max-width: 1200px; grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));">
+        <div class="card" style="width: 1200px;">
+          <h3 style="color: #00ffff;">Андрій Мацур</h3>
+          <p>
+            Засновник та головний архітектор Lab8_. Відповідає за загальну стратегію та іноваційні технології.
+          </p>
+          <div class="terminal no-blink">
+            > profile --id AM<br>
+            Status: ACTIVE<br>
+            GitHub Repo: <a href="https://github.com/matsur-tntu/lab8" target="_blank">https://github.com/matsur-tntu/lab8</a><br>
+            Website: <a href="https://matsur-tntu.github.io/lab8" target="_blank">https://matsur-tntu.github.io/lab8</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="color: #ff00ff;">Денис Войтович</h3>
+          <p>
+            Головний розробник систем кібер-безпеки та криптографії. Створює протоколи захисту інформації.
+          </p>
+          <p style="line-height: 1.6; color: #b8c5d6; margin-top: 1rem;">
+            <strong>Напрямок:</strong> КІБЕР БЕЗПЕКА<br>
+            <strong>Спеціалізація:</strong> Криптографічні системи, Захист інформації<br>
+            <strong>Проекти:</strong> Квантова криптографія (60%), Системи виявлення атак<br>
+            <strong>Місія:</strong> Створити непроникні системи захисту даних
+          </p>
+          <div class="terminal no-blink">
+            > profile --id DV<br>
+            Status: ACTIVE<br>
+            GitHub Repo: <a href="#" target="_blank">#</a><br>
+            Website: <a href="#" target="_blank">#</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="color: #ffff00;">Максим Олійник</h3>
+          <p>
+            Спеціаліст з штучного інтелекту та нейронних мереж. Розробляє AI системи нового покоління.
+          </p>
+          <p style="line-height: 1.6; color: #b8c5d6; margin-top: 1rem;">
+            <strong>Напрямок:</strong> НЕЙРОННІ МЕРЕЖІ<br>
+            <strong>Спеціалізація:</strong> ШІ, Машинне навчання, Квантова обробка даних<br>
+            <strong>Проекти:</strong> Нейронна оптимізація (85%), AI інтерфейси<br>
+            <strong>Місія:</strong> Створити розумні системи для прогнозування та аналізу
+          </p>
+          <div class="terminal no-blink">
+            > profile --id MO<br>
+            Status: ACTIVE<br>
+            GitHub Repo: <a href="#" target="_blank">#</a><br>
+            Website: <a href="#" target="_blank">#</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="color: #00ff00;">Святослав Злепко</h3>
+          <p>
+            Інженер з квантових обчислень та системного адміністрування. Інтегрує квантові процесори.
+          </p>
+          <p style="line-height: 1.6; color: #b8c5d6; margin-top: 1rem;">
+            <strong>Напрямок:</strong> КВАНТОВІ ОБЧИСЛЕННЯ<br>
+            <strong>Спеціалізація:</strong> Квантові процесори, Системна інтеграція<br>
+            <strong>Проекти:</strong> Квантові обчислення (15%), Інфраструктура<br>
+            <strong>Місія:</strong> Зробити квантові технології доступними для складних задач
+          </p>
+          <div class="terminal no-blink">
+            > profile --id SZ<br>
+            Status: ACTIVE<br>
+            GitHub Repo: <a href="#" target="_blank">#</a><br>
+            Website: <a href="#" target="_blank">#</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="color: #00ffff;">Вікторія В'юшин</h3>
+          <p>
+            Біотехнолог та спеціаліст з нейроінтерфейсів. Інтегрує біологічні системи з кібернетикою.
+          </p>
+          <p style="line-height: 1.6; color: #b8c5d6; margin-top: 1rem;">
+            <strong>Напрямок:</strong> БІОТЕХНОЛОГІЇ<br>
+            <strong>Спеціалізація:</strong> Нейроінтерфейси, Біо-кібернетичні системи<br>
+            <strong>Проекти:</strong> Біотехнологічна інтеграція, Нейроінтерфейси<br>
+            <strong>Місія:</strong> З'єднати людину з машиною етично та безпечно
+          </p>
+          <div class="terminal no-blink">
+            > profile --id VV<br>
+            Status: ACTIVE<br>
+            GitHub Repo: <a href="#" target="_blank">#</a><br>
+            Website: <a href="#" target="_blank">#</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 3rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <h3 style="color: #ff00ff; font-size: 2rem;">ПРИЄДНАЙТЕСЯ ДО КОМАНДИ</h3>
+        <p style="color: #b8c5d6; font-size: 1.2rem; line-height: 1.6;">
+          Lab8_ завжди шукає талановитих спеціалістів. Якщо ви маєте бачення та навички,
+          які можуть змінити світ - ми чекаємо на вас.
+        </p>
+        <div class="terminal" style="margin-top: 2rem; text-align: left;">
+          > team.join --apply now<br>
+          Application received...<br>
+          Evaluation: PROCESSING<br>
+          Welcome to Lab8_.
+        </div>
+        <p style="color: #00ffff; margin-top: 2rem; font-style: italic;">
+          "Разом ми створюємо майбутнє"
+        </p>
+        <p style="color: #b8c5d6; margin-top: 1rem;">
+          — Команда Lab8_
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script src="matrix.js"></script>
+</body>
+</html>

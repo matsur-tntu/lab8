@@ -33,10 +33,12 @@ class MatrixRain {
     this.ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-    this.ctx.fillStyle = '#00ff00';
-    this.ctx.font = this.fontSize + 'px JetBrains Mono';
-
     for (let i = 0; i < this.drops.length; i++) {
+      // Random color for each character
+      const colors = ['#00ff00', '#00ffff', '#ff00ff', '#ffff00', '#ff0000'];
+      this.ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+      this.ctx.font = this.fontSize + 'px JetBrains Mono';
+
       const text = this.characters.charAt(Math.floor(Math.random() * this.characters.length));
       this.ctx.fillText(text, i * this.fontSize, this.drops[i] * this.fontSize);
 

@@ -598,3 +598,70 @@ nav:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* Team Links */
+.terminal a {
+  color: #ffff00;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+.terminal a:hover {
+  color: #ffa500;
+  text-decoration: underline;
+  text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+
+.terminal.no-blink::after {
+  display: none;
+}
+
+/* Currency Table */
+.currency-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.currency-table th,
+.currency-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.currency-table th {
+  background: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.currency-table td {
+  color: #b8c5d6;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.currency-table tr:hover {
+  background: rgba(0, 255, 255, 0.05);
+}
+
+.status-active {
+  color: #00ff00;
+  font-weight: 600;
+}
+
+.status-warning {
+  color: #ffff00;
+  font-weight: 600;
+}
+
+.status-error {
+  color: #ff0000;
+  font-weight: 600;
+}
