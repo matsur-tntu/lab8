@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Статус - Lab6_</title>
+  <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Lab6_">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Matrix Background -->
+  <div class="matrix-bg" id="matrix-bg"></div>
+
+  <nav>
+    <div class="nav-container container">
+      <div class="logo">Lab6_</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Головна</a></li>
+        <li class="active"><a href="status.html">Статус</a></li>
+        <li><a href="future.html">Майбутнє</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="status" class="section">
+    <div class="container">
+      <h2>АКТИВНІ ПРОТОКОЛИ</h2>
+      <p style="text-align: center;">Моніторинг системних процесів та розвитку технологій</p>
+
+      <div class="terminal">
+        > status --all<br>
+        Loading system diagnostics...<br>
+        CPU: 87% | Memory: 6.2GB | Network: ENCRYPTED
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>НЕЙРОННА ОПТИМІЗАЦІЯ</h3>
+          <p>Розробка алгоритмів машинного навчання для прогнозування системних збоїв</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 85%"></div>
+          </div>
+          <p class="progress-text">85% завершено</p>
+          <div class="code-block">
+            <div class="line-numbers">1<br>2<br>3</div>
+            <pre class="code-content">
+              def neural_predict(data):
+              model = load_quantum_model()
+              return model.predict(data)
+            </pre>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>КВАНТОВА КРИПТОГРАФІЯ</h3>
+          <p>Імплементація пост-квантових криптографічних протоколів</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 60%"></div>
+          </div>
+          <p class="progress-text">60% завершено</p>
+          <div class="terminal">
+            > quantum_encrypt --key-size 4096<br>
+            Generating quantum keys... [SUCCESS]
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>ІОТ ІНТЕГРАЦІЯ</h3>
+          <p>Розгортання розподіленої мережі кібер-фізичних систем</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 40%"></div>
+          </div>
+          <p class="progress-text">40% завершено</p>
+          <div class="code-block">
+            <div class="line-numbers">1<br>2<br>3</div>
+            <pre class="code-content">
+              iot_network = CyberMesh()
+              iot_network.connect_devices()
+              iot_network.secure_channel()
+            </pre>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>БЛОКЧЕЙН АРХІТЕКТУРА</h3>
+          <p>Розробка децентралізованої інфраструктури для кібер-безпеки</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 25%"></div>
+          </div>
+          <p class="progress-text">25% завершено</p>
+          <div class="terminal">
+            > blockchain.deploy --nodes 1000<br>
+            Initializing distributed ledger...
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>КІБЕР БЕЗПЕКА</h3>
+          <p>Розробка систем виявлення та запобігання кібер-атакам</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 70%"></div>
+          </div>
+          <p class="progress-text">70% завершено</p>
+          <div class="code-block">
+            <div class="line-numbers">1<br>2<br>3</div>
+            <pre class="code-content">
+              security_system = CyberDefense()
+              security_system.scan_network()
+              security_system.quarantine_threats()
+            </pre>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>КВАНТОВІ ОБЧИСЛЕННЯ</h3>
+          <p>Інтеграція квантових процесорів у існуючу інфраструктуру</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 15%"></div>
+          </div>
+          <p class="progress-text">15% завершено</p>
+          <div class="terminal">
+            > quantum.init --qubits 1024<br>
+            Quantum computer online. Ready for computation.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="matrix.js"></script>
+</body>
+</html>

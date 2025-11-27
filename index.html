@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Головна - Lab6_</title>
+  <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Lab6_">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Matrix Background -->
+  <div class="matrix-bg" id="matrix-bg"></div>
+
+  <nav>
+    <div class="nav-container container">
+      <div class="logo">Lab6_</div>
+      <ul class="nav-links">
+        <li class="active"><a href="index.html">Головна</a></li>
+        <li><a href="status.html">Статус</a></li>
+        <li><a href="future.html">Майбутнє</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="scanning-line"></div>
+    <div class="hero-content container">
+      <h1 class="glitch" data-text="Lab6_">Lab6_</h1>
+      <p>Кібер лабораторія наступного покоління</p>
+      <div style="position: absolute; bottom: 2rem; right: 2rem; color: rgba(0, 255, 255, 0.6); font-size: 0.9rem; font-family: 'JetBrains Mono', monospace;">
+        by AM
+      </div>
+      <div class="terminal" style="text-align: start;"><br>
+        Initializing Lab6_ protocols... [OK]<br>
+        Loading neural networks... [OK]<br>
+        Establishing quantum link... [OK]<br>
+        System ready for deployment.
+      </div>
+      <a href="#about" class="cta-button">ІНІЦІАЛІЗАЦІЯ СИСТЕМИ</a>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2>СИСТЕМНА ІНФОРМАЦІЯ</h2>
+      <p>Ласкаво просимо до кібер лабораторії майбутнього. Тут народжуються інновації, що змінюють світ.</p>
+
+      <div style="text-align: center; margin-bottom: 2rem; color: rgba(184, 197, 214, 0.7); font-size: 0.9rem; font-style: italic;">
+        "Один розум, безмежні можливості"
+      </div>
+
+      <div class="code-block">
+        <div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6</div>
+        <pre class="code-content">const cyberLab = {
+        &nbsp;&nbsp;version: "2.0.1",
+        &nbsp;&nbsp;status: "ACTIVE",
+        &nbsp;&nbsp;protocols: ["AI", "Quantum", "Neural", "Cyber"],
+        &nbsp;&nbsp;security: "ENCRYPTED"
+        };</pre>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>НЕЙРОННІ МЕРЕЖІ</h3>
+          <p>Розробка штучного інтелекту нового покоління з квантовою обробкою даних</p>
+          <div class="terminal">
+            > neural_net.train(data)<br>
+            Training complete. Accuracy: 99.7%
+          </div>
+        </div>
+        <div class="card">
+          <h3>КІБЕР БЕЗПЕКА</h3>
+          <p>Криптографічні системи та протоколи захисту інформації в кіберпросторі</p>
+          <div class="terminal">
+            > encrypt --level maximum<br>
+            Data encrypted with quantum keys.
+          </div>
+        </div>
+        <div class="card">
+          <h3>КВАНТОВІ ОБЧИСЛЕННЯ</h3>
+          <p>Інтеграція квантових процесорів для вирішення складних алгоритмічних задач</p>
+          <div class="terminal">
+            > quantum.solve(problem)<br>
+            Solution found in 0.001ms
+          </div>
+        </div>
+        <div class="card">
+          <h3>БІОТЕХНОЛОГІЇ</h3>
+          <p>Інтеграція біологічних систем з кібернетичними імплантами та нейроінтерфейсами</p>
+          <div class="terminal">
+            > bio_interface.connect()<br>
+            Neural link established. Bandwidth: 10Gbps
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="matrix.js"></script>
+</body>
+</html>
