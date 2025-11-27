@@ -75,64 +75,60 @@
       <div class="charts-section" style="margin-top: 3rem;">
         <h3 style="color: #00ffff; text-align: center; margin-bottom: 2rem;">ГРАФІКИ ЗМІНИ КУРСІВ ВАЛЮТ</h3>
 
-        <div class="month-controls" style="text-align: center; margin-bottom: 2rem;">
-          <button id="prev-month" class="cta-button" style="margin-right: 1rem;">Попередній місяць</button>
-          <span id="current-month" style="color: #00ffff; font-size: 1.2rem;"></span>
-          <button id="next-month" class="cta-button" style="margin-left: 1rem;">Наступний місяць</button>
-        </div>
-
-        <div class="charts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+        <div class="charts-grid" style="max-width: 1000px; grid-template-columns: repeat(auto-fit, minmax(1000px, 1fr));">
           <div class="chart-card">
             <h4>USD - Долар США</h4>
+            <div class="chart-controls" style="text-align: center; margin-bottom: 1rem;">
+              <button class="chart-btn prev-month">◀ Попередній</button>
+              <span class="current-month-display" style="color: #00ffff; margin: 0 1rem;"></span>
+              <button class="chart-btn next-month">Наступний ▶</button>
+            </div>
             <canvas id="usd-chart" width="400" height="200"></canvas>
           </div>
           <div class="chart-card">
             <h4>EUR - Євро</h4>
+            <div class="chart-controls" style="text-align: center; margin-bottom: 1rem;">
+              <button class="chart-btn prev-month">◀ Попередній</button>
+              <span class="current-month-display" style="color: #00ffff; margin: 0 1rem;"></span>
+              <button class="chart-btn next-month">Наступний ▶</button>
+            </div>
             <canvas id="eur-chart" width="400" height="200"></canvas>
           </div>
           <div class="chart-card">
             <h4>MXN - Мексиканський песо</h4>
+            <div class="chart-controls" style="text-align: center; margin-bottom: 1rem;">
+              <button class="chart-btn prev-month">◀ Попередній</button>
+              <span class="current-month-display" style="color: #00ffff; margin: 0 1rem;"></span>
+              <button class="chart-btn next-month">Наступний ▶</button>
+            </div>
             <canvas id="mxn-chart" width="400" height="200"></canvas>
           </div>
           <div class="chart-card">
             <h4>SGD - Сінгапурський долар</h4>
+            <div class="chart-controls" style="text-align: center; margin-bottom: 1rem;">
+              <button class="chart-btn prev-month">◀ Попередній</button>
+              <span class="current-month-display" style="color: #00ffff; margin: 0 1rem;"></span>
+              <button class="chart-btn next-month">Наступний ▶</button>
+            </div>
             <canvas id="sgd-chart" width="400" height="200"></canvas>
           </div>
           <div class="chart-card">
             <h4>INR - Індійська рупія</h4>
+            <div class="chart-controls" style="text-align: center; margin-bottom: 1rem;">
+              <button class="chart-btn prev-month">◀ Попередній</button>
+              <span class="current-month-display" style="color: #00ffff; margin: 0 1rem;"></span>
+              <button class="chart-btn next-month">Наступний ▶</button>
+            </div>
             <canvas id="inr-chart" width="400" height="200"></canvas>
           </div>
-        </div>
-      </div>
-
-      <div class="card-grid" style="margin-top: 3rem;">
-        <div class="card">
-          <h3>ФІНАНСОВИЙ МОНІТОРИНГ</h3>
-          <p>Автоматизований збір та аналіз фінансових даних у реальному часі</p>
-          <div class="terminal">
-            > monitor --financial<br>
-            Scanning markets... [OK]<br>
-            Anomalies detected: 0
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>КВАНТОВИЙ АНАЛІЗ</h3>
-          <p>Прогнозування ринкових тенденцій з використанням квантових алгоритмів</p>
-          <div class="terminal">
-            > quantum.predict --market<br>
-            Processing data...<br>
-            Confidence: 94.7%
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>БЕЗПЕЧНІ ТРАНЗАКЦІЇ</h3>
-          <p>Криптографічний захист всіх фінансових операцій</p>
-          <div class="terminal">
-            > secure.transaction --encrypt<br>
-            Keys generated...<br>
-            Encryption: QUANTUM-SECURE
+          <div class="chart-card">
+            <h4>ZAR - Південноафриканський ранд</h4>
+            <div class="chart-controls" style="text-align: center; margin-bottom: 1rem;">
+              <button class="chart-btn prev-month">◀ Попередній</button>
+              <span class="current-month-display" style="color: #00ffff; margin: 0 1rem;"></span>
+              <button class="chart-btn next-month">Наступний ▶</button>
+            </div>
+            <canvas id="zar-chart" width="400" height="200"></canvas>
           </div>
         </div>
       </div>
@@ -147,10 +143,12 @@
 
     async function loadChartData(valcode, startDate, endDate) {
       const url = `https://bank.gov.ua/NBU_Exchange/exchange_site?start=${startDate}&end=${endDate}&valcode=${valcode}&sort=exchangedate&order=asc&json`;
-      const response = await fetch(url);
+      const proxyUrl = `https://media-design.kiev.ua/cors.php?url=${encodeURIComponent(url)}`;
+      const response = await fetch(proxyUrl);
       const data = await response.json();
       return data.map(item => ({
-        date: item.exchangedate,
+        // date: item.exchangedate,
+        date: item.exchangedate.slice(0, 5),
         rate: item.rate
       }));
     }
@@ -174,22 +172,28 @@
         },
         options: {
           responsive: true,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
           scales: {
             x: {
+              grid: {
+                color: 'rgba(0, 255, 255, 0.2)'
+              },
               ticks: {
-                color: '#00ffff'
+                color: '#00ffff',
+                maxTicksLimit: 10,
               }
             },
             y: {
+              grid: {
+                color: 'rgba(0, 255, 255, 0.2)'
+              },
               ticks: {
-                color: '#00ffff'
-              }
-            }
-          },
-          plugins: {
-            legend: {
-              labels: {
-                color: '#00ffff'
+                color: '#00ffff',
+                maxTicksLimit: 8,
               }
             }
           }
@@ -203,14 +207,18 @@
       const startDate = `${year}${month.toString().padStart(2, '0')}01`;
       const endDate = `${year}${month.toString().padStart(2, '0')}${new Date(year, month, 0).getDate()}`;
 
-      document.getElementById('current-month').textContent = currentDate.toLocaleDateString('uk-UA', { year: 'numeric', month: 'long' });
+      const monthDisplays = document.querySelectorAll('.current-month-display');
+      monthDisplays.forEach(display => {
+        display.textContent = currentDate.toLocaleDateString('uk-UA', { year: 'numeric', month: 'long' });
+      });
 
       const currencies = [
         { code: 'usd', id: 'usd-chart', name: 'USD' },
         { code: 'eur', id: 'eur-chart', name: 'EUR' },
         { code: 'mxn', id: 'mxn-chart', name: 'MXN' },
         { code: 'sgd', id: 'sgd-chart', name: 'SGD' },
-        { code: 'inr', id: 'inr-chart', name: 'INR' }
+        { code: 'inr', id: 'inr-chart', name: 'INR' },
+        { code: 'zar', id: 'zar-chart', name: 'ZAR' }
       ];
 
       for (const currency of currencies) {
@@ -285,14 +293,18 @@
 
       updateCharts();
 
-      document.getElementById('prev-month').addEventListener('click', () => {
-        currentDate.setMonth(currentDate.getMonth() - 1);
-        updateCharts();
+      document.querySelectorAll('.prev-month').forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentDate.setMonth(currentDate.getMonth() - 1);
+          updateCharts();
+        });
       });
 
-      document.getElementById('next-month').addEventListener('click', () => {
-        currentDate.setMonth(currentDate.getMonth() + 1);
-        updateCharts();
+      document.querySelectorAll('.next-month').forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentDate.setMonth(currentDate.getMonth() + 1);
+          updateCharts();
+        });
       });
     });
   </script>
